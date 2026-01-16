@@ -1,2 +1,9 @@
 senaite.analystnotifications.egg-info/
-*.pyc 
+*.pyc
+.installed.cfg
+.mr.developer.cfg
+.vscode/
+bin/
+*eggs
+parts
+src/senaite.* 
