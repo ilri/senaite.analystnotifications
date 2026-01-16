@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+           i18n_domain="senaite.analystnotifications">
+
+  <!-- GenericSetup profile registration -->
+  <genericsetup:registerProfile
+      name="default"
+      title="SENAITE Analyst Notifications"
+      directory="profiles/default"
+      description="Email notifications for analysts"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+  />
+
+  <!-- Subscriber for object creation AND modification -->
+  <subscriber for="zope.interface.Interface
+                   zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+              handler="senaite.analystnotifications.subscribers.worksheet_analyst_assigned"
+  />
+
+</configure>
