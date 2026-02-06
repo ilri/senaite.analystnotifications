@@ -1,0 +1,15 @@
+<configure xmlns="http://namespaces.zope.org/zope">
+
+  <!-- Adapter for Add Analyses worksheet listing -->
+  <subscriber
+      for="senaite.app.listing.interfaces.IListingView
+           zope.interface.Interface"
+      provides="senaite.app.listing.interfaces.IListingViewAdapter"
+      factory=".adapters.AddAnalysesBatchIDAdapter"
+  />
+  <adapter
+    factory=".batch_metadata.BatchID"
+    name="BatchID"
+/>
+
+</configure>

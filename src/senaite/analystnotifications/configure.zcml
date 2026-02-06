@@ -3,6 +3,9 @@
            xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
            i18n_domain="senaite.analystnotifications">
 
+  <!-- Include adapters -->
+   <include file="adapters.zcml" /> 
+
   <!-- GenericSetup profile registration -->
   <genericsetup:registerProfile
       name="default"
@@ -12,10 +15,18 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
   />
 
+   <!-- Override duplicate QC using CV instead of +/- bounds -->
+    <adapter
+    for="bika.lims.interfaces.IDuplicateAnalysis"
+    provides="bika.lims.interfaces.IResultOutOfRange"
+    factory=".duplicate_cv.DuplicateCVOutOfRange"
+/>
+
   <!-- Subscriber for object creation AND modification -->
-  <subscriber for="zope.interface.Interface
+  <!-- <subscriber for="zope.interface.Interface
                    zope.lifecycleevent.interfaces.IObjectModifiedEvent"
               handler="senaite.analystnotifications.subscribers.worksheet_analyst_assigned"
-  />
+  /> -->
+  
 
 </configure>

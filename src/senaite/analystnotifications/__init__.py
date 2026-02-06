@@ -1,1 +1,2 @@
-# namespace package
+from senaite.analystnotifications.patches.result_range import patch_duplicate_results_range
+patch_duplicate_results_range()
