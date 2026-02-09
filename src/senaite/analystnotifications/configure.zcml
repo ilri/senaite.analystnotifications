@@ -4,7 +4,7 @@
            i18n_domain="senaite.analystnotifications">
 
   <!-- Include adapters -->
-   <include file="adapters.zcml" /> 
+  <!--<include file="adapters.zcml" />  -->
 
   <!-- GenericSetup profile registration -->
   <genericsetup:registerProfile

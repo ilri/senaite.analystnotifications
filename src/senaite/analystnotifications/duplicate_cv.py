@@ -31,7 +31,6 @@ class DuplicateCVOutOfRange(object):
 
         # CV limit (%), reuse duplicate variation field
         cv_limit = api.to_float(original.getDuplicateVariation(), 0)
-        logger.warning("CV limit for duplicate: %s%%", cv_limit)
         if not cv_limit:
             return None
 
@@ -43,7 +42,7 @@ class DuplicateCVOutOfRange(object):
             }
 
         cv = abs(D - O) / ((2 ** 0.5) * mean) * 100.0
-        logger.warning("Duplicate CV check: O=%s D=%s CV=%.2f%% limit=%.2f%%",
+        logger.info("Duplicate CV check: O=%s D=%s CV=%.2f%% limit=%.2f%%",
                      O, D, cv, cv_limit)
 
         if cv <= cv_limit:
